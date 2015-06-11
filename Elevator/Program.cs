@@ -33,10 +33,10 @@ namespace Elevator
             lfloor.Add(f10);
            
             elevator._floorAll = lfloor;
-            elevator._floorcurrent = f1;
+            elevator._floorCurrent = f1;
 
-            //f2.CommandUp();
-            //elevator.CommandStop(f5);
+            f2.CommandUp();
+            elevator.CommandStop(f5);
 
 
             f8.CommandDown();

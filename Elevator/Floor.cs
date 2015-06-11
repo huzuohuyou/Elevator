@@ -54,7 +54,7 @@ namespace Elevator
         }
 
         /// <summary>
-        /// 获取本层是否停靠
+        /// 获取本层是否停靠，是否为命令层
         /// </summary>
         /// <returns>停靠true；过false；</returns>
         public bool GetStatus()
@@ -76,9 +76,13 @@ namespace Elevator
             {
                 return 1;
             }
-            else
+            else if(_boolStop)
             {
                 return 0;
+            }
+            else
+            {
+                return -999;
             }
 
         }
@@ -89,7 +93,7 @@ namespace Elevator
         public void CommandUp()
         {
             _boolUp = true;
-            
+            elevator.GoToCommandFloor();
         }
 
         /// <summary>
@@ -98,7 +102,7 @@ namespace Elevator
         public void CommandDown()
         {
             _boolDown = true;
-           
+            elevator.GoToCommandFloor();
         }
 
 

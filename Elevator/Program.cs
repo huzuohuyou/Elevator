@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Elevator
 {
@@ -33,14 +34,17 @@ namespace Elevator
             lfloor.Add(f10);
            
             elevator._floorAll = lfloor;
+            //设置当前楼层
             elevator._floorCurrent = f1;
+            //2楼叫梯 想下楼
+            f2.CommandDown();
+            //目标楼层为1楼
+            elevator.CommandStop(f1);
+            //4楼叫梯
+            f4.CommandUp();
+            //目标楼层为8楼
+            elevator.CommandStop(f8);
 
-            f2.CommandUp();
-            elevator.CommandStop(f5);
-
-
-            f8.CommandDown();
-            elevator.CommandStop(f5);
             Console.ReadLine();
         }
     }

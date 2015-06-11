@@ -6,7 +6,7 @@ using System.Text;
 namespace Elevator
 {
     /// <summary>
-    /// 楼层类
+    /// 楼层类，每个楼层有向上叫梯命令和向下叫梯命令
     /// </summary>
     public class Floor
     {
@@ -38,6 +38,9 @@ namespace Elevator
             set { _boolStop = value; }
         }
 
+        #region 构造函数
+        
+      
         public Floor(int f,Elevator e)
         {
             _iFloorNo = f;
@@ -52,6 +55,7 @@ namespace Elevator
         public Floor()
         {
         }
+        #endregion
 
         /// <summary>
         /// 获取本层是否停靠，是否为命令层
@@ -105,8 +109,10 @@ namespace Elevator
             elevator.GoToCommandFloor();
         }
 
-
-        public void Fresh()
+        /// <summary>
+        /// 楼层到达状态刷新
+        /// </summary>
+        public void Refresh()
         {
             _boolUp = false;
             _boolDown = false;
